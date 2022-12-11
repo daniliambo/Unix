@@ -1,0 +1,233 @@
+## info
+chmod u+x script.sh
+echo "$var"
+echo "$(func)"
+source script.sh
+dd
+stat file
+date -r file
+cat test.txt test2.txt
+
+WHILE IFS=
+The effect in that loop is to preserve leading and trailing
+white space in line. To illustrate, first observe with IFS set to nothing:
+
+https://linuxhint.com/while_read_line_bash/
+
+
+A trailing space is a space that is located after the final character in a text entry field
+
+# exec bash / exec zsh
+Or call it with the source command (which is an alias for .) (how to exec a script)
+------------------------------
+*SED*
+-n – suppresses verbosity
+Sed command is mostly used to replace the text in a file.
+
+# sed – stream editor
+The sed utility reads the specified files, or the standard input if no
+     files are specified, modifying the input as specified by a list of
+     commands.  The input is then written to the standard output.
+
+# sed 's/hell/heaven/' test.txt # substitute 's/search_pattern/replacement_string/'
+By default, the sed command replaces the first occurrence of the pattern in each line and it won’t replace the second, third…occurrence in the line.
+
+Replacing the nth occurrence of a pattern in a line 's/pattern/string/2'
+# replacing all occurances 's/pattern/string/g'
+
+# from nth to the end /3g
+# the \1 refers to the characters captured by the escaped parentheses.
+
+
+# replacing string on a specific line
+sed '3 s/unix/linux/' geekfile.txt
+
+#
+SED command can also be used for deleting lines from a particular file.
+sed '$d' test.txt – returns file w/o last line
+
+EXAMPLE:
+#simple
+#!bin/bash
+file=$1
+sed 's/l/q/g' > output.txt < "$file"
+
+1. – Insert one blank line after each line –
+    sed 'G' a.txt
+2. Insert 2
+    sed 'G;G' a.txt
+3. Insert line above every line that has love in it
+sed '/love/{x;p;x;}' a.txt
+
+View a file from line n to n
+sed -n '2,5p' a.txt
+
+# file spacing
+# deleting lines
+# printing lines
+# pattern printing
+# Replacement with the sed command 
+
+
+-e script, --expression=script
+
+    add the script to the commands to be executed
+
+
+------------------------------
+
+# operator comparisons
+https://kapeli.com/cheat_sheets/Bash_Test_Operators.docset/Contents/Resources/Documents/index
+
+------------------------------
+tr
+The tr utility copies the standard input to the standard output with
+     substitution or deletion of selected characters.
+
+vi – visual editor
+The default editor that comes with the UNIX operating system is called vi
+(visual editor)
+
+grep
+The grep utility searches any given input files, selecting lines that
+     match one or more patterns.  By default, a pattern matches an input line
+     if the regular expression (RE) in the pattern matches the input line
+     without its trailing newline.  An empty expression matches every line.
+     Each input line that matches at least one of the patterns is written to
+     the standard output.
+
+grep is used for simple patterns and basic regular expressions (BREs);
+     egrep can handle extended regular expressions (EREs).  See re_format(7)
+     for more information on regular expressions.  fgrep is quicker than both
+     grep and egrep, but can only handle fixed patterns (i.e., it does not
+     interpret regular expressions).  Patterns may consist of one or more
+     lines, allowing any of the pattern lines to match a portion of the input.
+
+zgrep, zegrep, and zfgrep act like grep, egrep, and fgrep, respectively,
+     but accept input files compressed with the compress(1) or gzip(1)
+     compression utilities.  bzgrep, bzegrep, and bzfgrep act like grep,
+     egrep, and fgrep, respectively, but accept input files compressed with
+     the bzip2(1) compression utility.
+------------------------------
+
+
+
+------------------------------
+
+
+
+------------------------------
+*time*
+
+atime — время последнего ДОСТУПА к файлу (например, чтение, исполнение). Можно увидеть командой ls -lu
+
+mtime — время последнего изменения файла (его содержимого). Можно увидеть командой ls -l
+
+ctime — время последнего изменения прав доступа или владельца. Можно увидеть командой ls -lc
+amin, mmin, cmin
+
++- expl
+True if the difference between the time of last change of file
+status information and the time find was started, rounded up to
+the next full minute, is more than n (+n), less than n (-n), or
+exactly n minutes ago.
+
+------------------------------
+
+# linux regular expression
+Regexps are most commonly used with the Linux commands:- grep, sed, tr, vi.
+
+#globs*
+* – zero or more
+? – zero or one
+#1) ‘^’ – anchor character for start of line:
+#2) ‘$’ – anchor character for end of line:
+#3) ‘.’ – any single character:
+#4) ‘[’ range ‘]’ – a range of characters: [0-9][A-e]
+#5) \ – escape chars
+#6) () – use for set
+? 
+shopt -s extglob
+
+------------------------------
+*PING*
+255.255.255.255
+ping localhost
+ping google.com > packets.txt
+
+
+A broadcast address is a network address used
+to transmit to all devices connected to a
+multiple-access communications network. A message
+sent to a broadcast address may be received by all network-attached hosts.
+ping 255.255.255.255
+
+EXIT STATUS
+     The ping utility exits with one of the following values:
+
+     0       At least one response was heard from the specified host.
+
+     2       The transmission was successful but no responses were received.
+
+     any other value
+
+----------------------
+
+*Descriptors*
+File descriptor 2 represents standard error. (other special file descriptors include 0 for standard input and 1 for standard output).
+
+2> /dev/null means to redirect standard error to /dev/null. /dev/null is a special device that discards everything that is written to it.
+
+Putting all together, this line of code stores the standard output of command ls $directory_/fallback_* 2> /dev/null into the variable scriptlist, and the standard error is discarded.
+
+
+File descriptor 0 is the standard input (stdin). <
+File descriptor 1 is the standard output (stdout). >
+File descriptor 2 is the standard error (stderr).
+
+Transmission – the action or process of transmitting something, or the state of being transmitted.
+2>&1. Consider >& to be a redirect merger operator. stderr to stdout
+
+----------------------
+
+"$? is the exit status of the most recently-executed command"; by convention,
+0 means success and anything else indicates failure. That line is testing
+whether the grep command succeeded.
+
+It's checking the return value ($?) of grep. In this case
+it's comparing it to 0 (success).
+
+----------------------
+
+awk
+
+----------------------
+
+dscl . list /Users | grep -v '^_'
+sudo -i
+dscl . -ls /Users | grep -v ‘^_’
+chown
+users
+chron
+
+
+----------------------
+man test
+[[]] – condition
+cat * >concat
+rm *.???
+
+spaces are important in conditions [[ $a =~ $b ]]
+
+-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
+SOLUTIONS
+# write a script that goes through every folder in .
+and writes all the content of files with sc.sh name in file.txt
+decoration:
+SOLUTIONS:
+1.
+"code"
+--------------------
+2.
+"code"
+etc...

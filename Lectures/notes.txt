@@ -1,0 +1,52 @@
+Types of user interfaces:
+GUI, CLI, TUI
+
+MacOS – unix heir
+
+zsh, bash – shell realizations
+POSIX standard for all shells implementations
+
+$ standard user
+# super user
+prompt - output
+
+Exit status – 0 – OK, other – error
+every program has it's own defined status differently
+
+python [-bBdEhiIOqsSuvVWx?] [-c command | -m module-name | script | - ] 
+[args]
+-c make python execute commands, multiple are separated with |
+
+Apple's Unix implementation – Darwin
+
+Users/Groups of users
+------------------------
+Commands:
+man *command* – shows manual for a given command
+
+echo – writes arguments to the standard output, just print something to the standard output
+
+awk – pattern-directed scanning and processing language
+
+cat – prints the file
+
+cd w/o arguments – home directory of a user
+
+ls -l
+
+tree -L \1 ––– \1 – nest level
+
+python3 -m pip list
+
+brew list
+
+chmod – change file modes or Access Control Lists
+
+*command* -h, --help
+
+----------------------------------------
+Lecture # 3
+pwd – prints out current working directory
+
+nix is a packet manager
+
